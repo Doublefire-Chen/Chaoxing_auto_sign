@@ -51,7 +51,7 @@ setting={
         "sign_pic":False,    #是否开启照片签到 「True 开启 False 关闭」 默认关闭，可自行修改
         "sign_hand":False,   #是否开启手势签到 「True 开启 False 关闭」 默认关闭，可自行修改
         "sign_local":True,  #是否开启定位签到 「True 开启 False 关闭」 默认开启，可自行修改
-        "sign_sever_chan":'sadwdqwq' #你的sever酱地址 「如果需要微信推送就填」
+        "sign_sever_chan":'qaqaqaqaq' #你的sever酱地址 「如果需要微信推送就填」
     },
     "other":{
         "count":5, #每门课程只检测前N个活动 避免因课程活动太多而卡住
