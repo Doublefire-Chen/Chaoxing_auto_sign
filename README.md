@@ -1,6 +1,7 @@
 ## 超星学习通自动签到
 超星学习通自动签到脚本，原作者是[sanyue3](https://github.com/sanyue3/ChaoXingSign)，我只对代码做了一点简单的修改  
-本README.md的撰写参考文档：【[1](https://github.com/yuban10703/chaoxingsign/blob/master/README.md)】【[2](https://github.com/exqlnet/chaoxing_sign/blob/master/README.md)】【[3](https://github.com/sanyue3/ChaoXingSign/blob/main/README.md)】(我也是第一次写这玩意，如有错误，多多包涵，欢迎指正)
+本README.md的撰写参考文档：【[1](https://github.com/yuban10703/chaoxingsign/blob/master/README.md)】【[2](https://github.com/exqlnet/chaoxing_sign/blob/master/README.md)】【[3](https://github.com/sanyue3/ChaoXingSign/blob/main/README.md)】(我也是第一次写这玩意，如有错误，多多包涵，欢迎指正)  
+此脚本仅用于学习交流，禁止用于任何商业用途，如有违反，后果自负！
 
 ## 特别鸣谢：信科学长czy的指导、我舍友cmr的辅助测试
 
