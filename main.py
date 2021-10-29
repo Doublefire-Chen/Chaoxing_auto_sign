@@ -33,27 +33,25 @@ import requests,json
 import urllib.parse
 from random import choices
 import datetime,os,time
+import requests
 session = requests.session()
 requests.packages.urllib3.disable_warnings()
 
-#用于退出的全局变量
-global flag
-flag=0
-
 #用户配置！必须写！
 setting={
-    "account":'12345678', #账号（手机号 ）「必填」
+    "account":'12345678', #账号（手机号 ）「必填，填手机号就行了，别到处乱填你的学号，以防泄露」
     "password":'12345678', #密码 「必填」
     "sign":{
-        "long":'116.36521', #定位签到经度 「可空」
-        "lat":'39.990201', #定位签到纬度 「可空」
-        "address":'中国北京市海淀区花园路街道花园北路北京大学(医学部)', #定位签到显示的地址 「必填」
+        "long":'116.36521', #定位签到经度 「需要位置签到就填」
+        "lat":'39.990201', #定位签到纬度 「需要位置签到就填」
+        "address":'中国北京市海淀区花园路街道花园北路北京大学(医学部)', #定位签到显示的地址 「需要位置签到就填」
         "name":'张三', #签到姓名 「必填」
-        "img":['4c57ab8d2d25b6a60bcbd102a094b1b0'], #图片自定义之后再写，这里可以自己填入objectId列表就可以了，默认上传的图片是「图片加载失败」用来迷惑老师
+        "img":['4c57ab8d2d25b6a60bcbd102a094b1b0'], #图片自定义之后再写，这里可以自己填入objectId列表就可以了，默认上传的图片是「图片加载失败」用来迷惑老师 「需要图片签到就填」
         "sign_common":True, #是否开启普通签到 「True 开启 False 关闭」 默认开启，可自行修改
         "sign_pic":False,    #是否开启照片签到 「True 开启 False 关闭」 默认关闭，可自行修改
         "sign_hand":False,   #是否开启手势签到 「True 开启 False 关闭」 默认关闭，可自行修改
         "sign_local":True,  #是否开启定位签到 「True 开启 False 关闭」 默认开启，可自行修改
+        "sign_sever_chan":'sadwdqwq' #你的sever酱地址 「如果需要微信推送就填」
     },
     "other":{
         "count":5, #每门课程只检测前N个活动 避免因课程活动太多而卡住
@@ -62,6 +60,8 @@ setting={
 }
 
 #乱七八糟的变量 不要动我
+global flag
+flag=0 #用于退出的全局变量
 mycookie=""
 myuid=""
 courselist=[]
@@ -228,14 +228,12 @@ def sign(course, aid, uid, name):
         data = {
     'text': '【超星自动签到】',
     'desp': '定位签到成功\n'+'【学习通签到】\n课程名称：'+ courseName +'\n任课教师：'+ teacherName +'\n签到状态：'+ signTypeStr +'成功'}
-        import requests
-        url = 'https://sc.ftqq.com/你的sever酱地址.send'       
+        url = 'https://sc.ftqq.com/'sign_sever_chan'.send'       
         requests.post(url, data=data)
         print(get_time()+'签到信息如下\n' + '【学习通签到】\n课程：'+ courseName +'\n任课教师：'+ teacherName +'\n签到状态：'+ signTypeStr +'成功')
         print('签到完成，自动推出程序')
         global flag
-        flag=1
-        #签到过一次后自动退出，如果想全时间段运行，请把下方的“exit()”删
+        flag=1 #签到过一次后自动退出，如果想全时间段运行，请把1改成0（不建议）
     return signres
 #获取用户活动列表
 def gettask(course, courseId,classId,uid,cpi,name,sign_common,sign_pic,sign_hand,sign_local):
