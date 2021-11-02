@@ -129,7 +129,7 @@ def getcourse():
         return 0
     res=requests.get(url,headers=headers)
     if('请重新登录' in res.text):
-        print("Cookie已过期")
+        print("Cookie已过期，请删除Cookie.txt文件并重启软件")
     else:
         d=json.loads(res.text)
         courselist=d['channelList']
